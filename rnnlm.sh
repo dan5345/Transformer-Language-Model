@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-python train.py --data-dir "corpus.bpe.en" \
+python train.py --data-dir "training.en" \
 		--valid-dir "valid" \
 		--test-dir "" \
-		--mode "train" 
+		--mode "train" \

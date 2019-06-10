@@ -2,7 +2,7 @@ import collections
 import os
 import torch
 import json
-from utils import pad_sents, read_corpus
+from model.utils import pad_sents, read_corpus
 import argparse
 
 def get_args():
@@ -41,9 +41,9 @@ class Dictionary(object):
 
     def words2indices(self,sents):
         if type(sents[0]) == list:
-            return [[self.word2id[w] for w in s] for s in sents]
+            return [[self[w] for w in s] for s in sents]
         else:
-            return [self.word2id[w] for w in sents]
+            return [self[w] for w in sents]
 
     def indices2words(self,word2ids):
         return [self.id2word[w_id] for w_id in word2ids]

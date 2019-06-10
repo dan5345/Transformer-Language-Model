@@ -17,12 +17,13 @@ def get_args():
     parser.add_argument("--seed", default = 2019 , help = "random seed")
     parser.add_argument("--batch-size", default = 128, help= "training batch size")
     parser.add_argument("--clip-grad", default = 5.0, help ="gradient clipping")
-    parser.add_argument("--valid-freq", default = 1000, help="number of batches between each validation")
+    parser.add_argument("--valid-freq", default = 1000,type = int, help="number of batches between each validation")
     parser.add_argument("--model-save-path", default = "model.bin", help="model save path")
     parser.add_argument("--embed-size", default = 256, help = "embedding size")
     parser.add_argument("--hidden-size", default = 256, help = "hidden size for rnn ")
     parser.add_argument("--dropout", default = 0.1, help ="dropout rate")
     parser.add_argument("--tie-embed", default = False, help = "using tie embedding")
+    parser.add_argument("--save-path", default = "./saved_model/model.bin", help = "save directory")
 
     return parser.parse_args()
 

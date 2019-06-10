@@ -1,13 +1,14 @@
 import math
 import sys
 import time
-from lm import RNNLM
+from model.lm import RNNLM
 import numpy as np
 from tqdm import tqdm
 from data_vocab import Vocab
 import logging
+import os
 
-from utils import read_corpus, batch_iter, get_args
+from model.utils import read_corpus, batch_iter, get_args
 import torch
 import torch.nn.utils
 
@@ -50,6 +51,7 @@ def train(args):
     max_num_trial  = 5
     learning_rate_decay = 0.5
     max_epoch = 5000
+    model_save_path = args.save_path
 
     model = RNNLM(embed_size = args.embed_size, hidden_size = args.hidden_size, vocab = vocab, dropout_rate = args.dropout, device = device, tie_embed = args.tie_embed)
 
